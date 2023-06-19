@@ -30,7 +30,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/DivBairrosDistritos_1.js"></script>
+        <script src="data/DivBairros_1.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -57,7 +57,7 @@
         });
         layer_GoogleSatellite_0;
         map.addLayer(layer_GoogleSatellite_0);
-        function pop_DivBairrosDistritos_1(feature, layer) {
+        function pop_DivBairros_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['objectid'] !== null ? autolinker.link(feature.properties['objectid'].toLocaleString()) : '') + '</td>\
@@ -93,12 +93,6 @@
                         <td colspan="2">' + (feature.properties['cod_bairro'] !== null ? autolinker.link(feature.properties['cod_bairro'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['countcasos'] !== null ? autolinker.link(feature.properties['countcasos'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['countcasosconf'] !== null ? autolinker.link(feature.properties['countcasosconf'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <td colspan="2">' + (feature.properties['globalid'] !== null ? autolinker.link(feature.properties['globalid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -111,9 +105,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_DivBairrosDistritos_1_0() {
+        function style_DivBairros_1_0() {
             return {
-                pane: 'pane_DivBairrosDistritos_1',
+                pane: 'pane_DivBairros_1',
                 opacity: 1,
                 color: 'rgba(227,26,28,1.0)',
                 dashArray: '',
@@ -122,49 +116,49 @@
                 weight: 4.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(251,154,153,0.3843137254901961)',
+                fillColor: 'rgba(251,154,153,0.28627450980392155)',
                 interactive: true,
             }
         }
-        map.createPane('pane_DivBairrosDistritos_1');
-        map.getPane('pane_DivBairrosDistritos_1').style.zIndex = 401;
-        map.getPane('pane_DivBairrosDistritos_1').style['mix-blend-mode'] = 'normal';
-        var layer_DivBairrosDistritos_1 = new L.geoJson(json_DivBairrosDistritos_1, {
+        map.createPane('pane_DivBairros_1');
+        map.getPane('pane_DivBairros_1').style.zIndex = 401;
+        map.getPane('pane_DivBairros_1').style['mix-blend-mode'] = 'normal';
+        var layer_DivBairros_1 = new L.geoJson(json_DivBairros_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DivBairrosDistritos_1',
-            layerName: 'layer_DivBairrosDistritos_1',
-            pane: 'pane_DivBairrosDistritos_1',
-            onEachFeature: pop_DivBairrosDistritos_1,
-            style: style_DivBairrosDistritos_1_0,
+            dataVar: 'json_DivBairros_1',
+            layerName: 'layer_DivBairros_1',
+            pane: 'pane_DivBairros_1',
+            onEachFeature: pop_DivBairros_1,
+            style: style_DivBairros_1_0,
         });
-        bounds_group.addLayer(layer_DivBairrosDistritos_1);
-        map.addLayer(layer_DivBairrosDistritos_1);
+        bounds_group.addLayer(layer_DivBairros_1);
+        map.addLayer(layer_DivBairros_1);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/DivBairrosDistritos_1.png" /> DivBairrosDistritos': layer_DivBairrosDistritos_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/DivBairros_1.png" /> DivBairros': layer_DivBairros_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
-        layer_DivBairrosDistritos_1.eachLayer(function(layer) {
+        layer_DivBairros_1.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['nome_bairr'] !== null?String('<div style="color: #ffffff; font-size: 10pt; font-family: \'Arial Unicode MS\', sans-serif;">' + layer.feature.properties['nome_bairr']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DivBairrosDistritos_1'});
+            layer.bindTooltip((layer.feature.properties['nome_bairr'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-family: \'Arial Black\', sans-serif;">' + layer.feature.properties['nome_bairr']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DivBairros_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_DivBairrosDistritos_1]);
+        resetLabels([layer_DivBairros_1]);
         map.on("zoomend", function(){
-            resetLabels([layer_DivBairrosDistritos_1]);
+            resetLabels([layer_DivBairros_1]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_DivBairrosDistritos_1]);
+            resetLabels([layer_DivBairros_1]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_DivBairrosDistritos_1]);
+            resetLabels([layer_DivBairros_1]);
         });
         </script>
     </body>
